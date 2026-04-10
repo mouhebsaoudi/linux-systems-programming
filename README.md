@@ -31,16 +31,3 @@ Topics covered include:
 - containers
 - cgroups
 
-## Repository Structure
-
-```text
-linux-systems-programming/
-  README.md
-  task1-system-calls/
-  task2-file-io/
-  task3-concurrency/
-  task4-memory-management/
-  task5-processes/
-  task6-sockets/
-  task7-profiling/
-  task8-virtualization/

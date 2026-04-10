@@ -1,0 +1,7 @@
+/mnt/c/Users/mouhe/OneDrive/Bureau/bachelor/sem 5/prak/task8-llvm-mouhebsaoudi/tasks/dead-code-elimination/build/CMakeFiles/intrinsics_gen.dir
+/mnt/c/Users/mouhe/OneDrive/Bureau/bachelor/sem 5/prak/task8-llvm-mouhebsaoudi/tasks/dead-code-elimination/build/CMakeFiles/omp_gen.dir
+/mnt/c/Users/mouhe/OneDrive/Bureau/bachelor/sem 5/prak/task8-llvm-mouhebsaoudi/tasks/dead-code-elimination/build/CMakeFiles/acc_gen.dir
+/mnt/c/Users/mouhe/OneDrive/Bureau/bachelor/sem 5/prak/task8-llvm-mouhebsaoudi/tasks/dead-code-elimination/build/CMakeFiles/RISCVTargetParserTableGen.dir
+/mnt/c/Users/mouhe/OneDrive/Bureau/bachelor/sem 5/prak/task8-llvm-mouhebsaoudi/tasks/dead-code-elimination/build/CMakeFiles/DeadCodeElimination.dir
+/mnt/c/Users/mouhe/OneDrive/Bureau/bachelor/sem 5/prak/task8-llvm-mouhebsaoudi/tasks/dead-code-elimination/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/mouhe/OneDrive/Bureau/bachelor/sem 5/prak/task8-llvm-mouhebsaoudi/tasks/dead-code-elimination/build/CMakeFiles/rebuild_cache.dir

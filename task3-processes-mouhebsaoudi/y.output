@@ -1,0 +1,291 @@
+Terminals unused in grammar
+
+    NL
+
+
+Grammar
+
+    0 $accept: cmd_line $end
+
+    1 cmd_line: ε
+    2         | EXIT
+    3         | EXIT STRING
+    4         | WAIT
+    5         | WAIT STRING
+    6         | KILL STRING
+    7         | pipeline background
+
+    8 background: BACKGROUND
+    9           | ε
+
+   10 simple: command redir
+
+   11 command: command STRING
+   12        | STRING
+
+   13 redir: input_redir output_redir
+
+   14 output_redir: OUTPUT_REDIR STRING
+   15             | ε
+
+   16 input_redir: INPUT_REDIR STRING
+   17            | ε
+
+   18 pipeline: pipeline PIPE simple
+   19         | simple
+
+
+Terminals, with rules where they appear
+
+    $end (0) 0
+    error (256)
+    EXIT <string> (258) 2 3
+    WAIT <string> (259) 4 5
+    KILL <string> (260) 6
+    PIPE <string> (261) 18
+    INPUT_REDIR <string> (262) 16
+    OUTPUT_REDIR <string> (263) 14
+    STRING <string> (264) 3 5 6 11 12 14 16
+    NL <string> (265)
+    BACKGROUND <string> (266) 8
+
+
+Nonterminals, with rules where they appear
+
+    $accept (12)
+        on left: 0
+    cmd_line (13)
+        on left: 1 2 3 4 5 6 7
+        on right: 0
+    background (14)
+        on left: 8 9
+        on right: 7
+    simple (15)
+        on left: 10
+        on right: 18 19
+    command (16)
+        on left: 11 12
+        on right: 10 11
+    redir (17)
+        on left: 13
+        on right: 10
+    output_redir (18)
+        on left: 14 15
+        on right: 13
+    input_redir (19)
+        on left: 16 17
+        on right: 13
+    pipeline (20)
+        on left: 18 19
+        on right: 7 18
+
+
+State 0
+
+    0 $accept: • cmd_line $end
+
+    EXIT    shift, and go to state 1
+    WAIT    shift, and go to state 2
+    KILL    shift, and go to state 3
+    STRING  shift, and go to state 4
+
+    $default  reduce using rule 1 (cmd_line)
+
+    cmd_line  go to state 5
+    simple    go to state 6
+    command   go to state 7
+    pipeline  go to state 8
+
+
+State 1
+
+    2 cmd_line: EXIT •
+    3         | EXIT • STRING
+
+    STRING  shift, and go to state 9
+
+    $default  reduce using rule 2 (cmd_line)
+
+
+State 2
+
+    4 cmd_line: WAIT •
+    5         | WAIT • STRING
+
+    STRING  shift, and go to state 10
+
+    $default  reduce using rule 4 (cmd_line)
+
+
+State 3
+
+    6 cmd_line: KILL • STRING
+
+    STRING  shift, and go to state 11
+
+
+State 4
+
+   12 command: STRING •
+
+    $default  reduce using rule 12 (command)
+
+
+State 5
+
+    0 $accept: cmd_line • $end
+
+    $end  shift, and go to state 12
+
+
+State 6
+
+   19 pipeline: simple •
+
+    $default  reduce using rule 19 (pipeline)
+
+
+State 7
+
+   10 simple: command • redir
+   11 command: command • STRING
+
+    INPUT_REDIR  shift, and go to state 13
+    STRING       shift, and go to state 14
+
+    $default  reduce using rule 17 (input_redir)
+
+    redir        go to state 15
+    input_redir  go to state 16
+
+
+State 8
+
+    7 cmd_line: pipeline • background
+   18 pipeline: pipeline • PIPE simple
+
+    PIPE        shift, and go to state 17
+    BACKGROUND  shift, and go to state 18
+
+    $default  reduce using rule 9 (background)
+
+    background  go to state 19
+
+
+State 9
+
+    3 cmd_line: EXIT STRING •
+
+    $default  reduce using rule 3 (cmd_line)
+
+
+State 10
+
+    5 cmd_line: WAIT STRING •
+
+    $default  reduce using rule 5 (cmd_line)
+
+
+State 11
+
+    6 cmd_line: KILL STRING •
+
+    $default  reduce using rule 6 (cmd_line)
+
+
+State 12
+
+    0 $accept: cmd_line $end •
+
+    $default  accept
+
+
+State 13
+
+   16 input_redir: INPUT_REDIR • STRING
+
+    STRING  shift, and go to state 20
+
+
+State 14
+
+   11 command: command STRING •
+
+    $default  reduce using rule 11 (command)
+
+
+State 15
+
+   10 simple: command redir •
+
+    $default  reduce using rule 10 (simple)
+
+
+State 16
+
+   13 redir: input_redir • output_redir
+
+    OUTPUT_REDIR  shift, and go to state 21
+
+    $default  reduce using rule 15 (output_redir)
+
+    output_redir  go to state 22
+
+
+State 17
+
+   18 pipeline: pipeline PIPE • simple
+
+    STRING  shift, and go to state 4
+
+    simple   go to state 23
+    command  go to state 7
+
+
+State 18
+
+    8 background: BACKGROUND •
+
+    $default  reduce using rule 8 (background)
+
+
+State 19
+
+    7 cmd_line: pipeline background •
+
+    $default  reduce using rule 7 (cmd_line)
+
+
+State 20
+
+   16 input_redir: INPUT_REDIR STRING •
+
+    $default  reduce using rule 16 (input_redir)
+
+
+State 21
+
+   14 output_redir: OUTPUT_REDIR • STRING
+
+    STRING  shift, and go to state 24
+
+
+State 22
+
+   13 redir: input_redir output_redir •
+
+    $default  reduce using rule 13 (redir)
+
+
+State 23
+
+   18 pipeline: pipeline PIPE simple •
+
+    $default  reduce using rule 18 (pipeline)
+
+
+State 24
+
+   14 output_redir: OUTPUT_REDIR STRING •
+
+    $default  reduce using rule 14 (output_redir)

@@ -1,0 +1,13 @@
+[package]
+name = "exec"
+edition = "2018"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate_type = ["staticlib"]
+
+[dependencies]
+nix = "0.20.0"
+libc = "0.2.18"
